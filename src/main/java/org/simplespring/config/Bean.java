@@ -2,7 +2,8 @@ package org.simplespring.config;
 
 import java.util.*;
 
-public class Bean {
+public class Bean
+{
     private String name;
 
     private String className;
@@ -32,15 +33,20 @@ public class Bean {
     /**
      * 获取索引为 paramIndex 的构造函数入参，先尝试通过 index 获取，如果该参数未设置 index 属性，再尝试通过 type 获取
      */
-    public ConstructorArg getArgumentValue(int paramIndex, Class<?> paramType, Set<ConstructorArg> usedConstructorArg) {
-        if (paramIndex < 0) {
+    public ConstructorArg getArgumentValue(int paramIndex, Class<?> paramType, Set<ConstructorArg> usedConstructorArg)
+    {
+        if (paramIndex < 0)
+        {
             throw new RuntimeException("索引不能为负");
         }
         ConstructorArg res = null;
         res = this.indexConstructorArgs.get(paramIndex);
-        if (res == null) {
-            for (ConstructorArg constructorArg : this.genericConstructorArgs) {
-                if (constructorArg.getType().equals(paramType.getCanonicalName())) {
+        if (res == null)
+        {
+            for (ConstructorArg constructorArg : this.genericConstructorArgs)
+            {
+                if (constructorArg.getType().equals(paramType.getCanonicalName()))
+                {
                     res = constructorArg;
                     break;
                 }
@@ -52,9 +58,11 @@ public class Bean {
     /**
      * 获取 genericConstructorArgs 中第一个没有使用的参数
      */
-    public ConstructorArg getGenericArgumentValue(Set<ConstructorArg> usedConstructorArg) {
+    public ConstructorArg getGenericArgumentValue(Set<ConstructorArg> usedConstructorArg)
+    {
         for (ConstructorArg constructorArg : this.genericConstructorArgs) {
-            if (usedConstructorArg != null && usedConstructorArg.contains(constructorArg)) {
+            if (usedConstructorArg != null && usedConstructorArg.contains(constructorArg))
+            {
                 continue;
             }
             return constructorArg;

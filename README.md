@@ -159,6 +159,9 @@ BeanUtils.setProperty(user, "password", "admin123");
     - 将 Bean 对象封装到 Map res 中（这个 Map 就是我们的返回结果）
   - 返回 Map res
 
+
+constructor-arg：通过构造函数注入。 
+property：通过setter对应的方法注入。
 `<property>` 标签的解析较为简单，而 `<constructor-arg>` 标签的解析却不是那么的容易，因为如果像 `<property>` 标签一样，在 Bean 中仅仅通过一个 `List<Property>` 来存储的话，我们之后将很难通过配置文件给出的配置信息来确定到底应该执行哪一个构造函数来创建对象。因此，为了方便后面构造函数匹配的实现，我们在 Bean 中通过以下结构来存储 `<constructor-arg>` 标签的信息：
 
 ```java

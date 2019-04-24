@@ -5,7 +5,8 @@ import java.lang.reflect.Modifier;
 import java.util.Arrays;
 
 public class AutowireUtils {
-    public static void sortConstructors(Constructor<?>[] constructors) {
+    public static void sortConstructors(Constructor<?>[] constructors)
+    {
         Arrays.sort(constructors, (c1, c2) -> {
             boolean p1 = Modifier.isPublic(c1.getModifiers());
             boolean p2 = Modifier.isPublic(c2.getModifiers());

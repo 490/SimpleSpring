@@ -3,7 +3,8 @@ package org.simplespring.config;
 /**
  * 存放 constructor-arg 标签信息
  */
-public class ConstructorArg {
+public class ConstructorArg
+{
     /* constructor-arg 标签的两个属性 */
     private String type;
     private int index;
